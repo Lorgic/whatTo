@@ -1,0 +1,13 @@
+page-add-recipe {
+  .ingredients{
+    &-container{
+      display: flex;
+      padding-bottom:16px;
+      width: 100%;
+    }
+  }
+
+  .btn-delete{
+    align-self: flex-end;
+  }
+}

@@ -1,0 +1,37 @@
+<!--
+  Generated template for the AddRecipePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Voeg een gerecht toe</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="addRecipeForm" (ngSubmit)="onSubmit()">
+      <lor-text-input label="Naam van het gerecht" [parent]="addRecipeForm" control="recipeName"></lor-text-input>
+      <h2>Ingredienten</h2>
+      <lor-text-input label="Hoeveel personen" [parent]="addRecipeForm" control="servings"></lor-text-input>
+      <div formArrayName="ingredients">
+        <div [formGroupName]="idx" *ngFor="let ingredient of ingredients.controls; index as idx" class="ingredients-container">
+          <lor-text-input [suggestions]="ingredientsList" label="Ingredient" [parent]="ingredients.controls[idx]" control="name" (updateText)="onChangeIngredients($event)" ></lor-text-input>
+          <lor-text-input label="Hoeveelheid" [parent]="ingredients.controls[idx]" control="quantity"></lor-text-input>
+          <button clear icon-only ion-button class="btn-delete" (click)="deleteIngredientInput(idx)"><ion-icon name="trash"></ion-icon></button>
+        </div>
+      </div>
+      <button ion-fab mini float-right (click)="addIngredientInput()"><ion-icon name="add"></ion-icon></button>
+
+
+  </form>
+  <button ion-button full navPush="AddInstructionsPage">Naar instructies</button>
+
+
+
+
+</ion-content>

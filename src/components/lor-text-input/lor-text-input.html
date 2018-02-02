@@ -1,0 +1,20 @@
+<div [formGroup]="form" class="component-container lor-input-wrapper">
+  <ion-item >
+    <ion-label floating>{{label}}</ion-label>
+    <ion-input
+      type="text"
+      formControlName="{{control}}"
+      (ionChange)="onChange($event)"
+      (blur)="unFocus($event)"
+      (ionFocus)="focus($event)"
+      [ngClass]="{'nn-input-focus': isFocussed}">
+    </ion-input>
+  </ion-item>
+  <div [hidden]="!isFocussed" class="suggestions-container">
+    <button class="suggestions-button" (click)="useSuggestion(suggestion)" *ngFor="let suggestion of suggestions">{{suggestion}}</button>
+  </div>
+</div>
+<div class="nn-validation-message" *ngIf="form.get(control).hasError('required') && form.get(control).touched">
+  <span *ngIf="form.get(control).hasError('required')">Dit is een verplicht veld</span>
+</div>
+

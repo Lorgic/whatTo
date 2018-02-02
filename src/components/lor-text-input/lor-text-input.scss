@@ -1,0 +1,25 @@
+lor-text-input {
+  .lor-input-wrapper{
+    position: relative;
+  }
+  .suggestions {
+    &-container{
+      width:100%;
+      padding-right:16px;
+      display:flex;
+      flex-direction: column;
+      margin-left:16px;
+      position: absolute;
+      z-index: 1;
+    }
+    &-button{
+      text-align: left;
+      background-color: white;
+      font-size: 20px;
+      padding-top: 8px;
+      padding-bottom:8px;
+      border-bottom: 1px solid gray;
+    }
+
+  }
+}

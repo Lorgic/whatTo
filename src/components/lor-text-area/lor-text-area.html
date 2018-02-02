@@ -1,0 +1,16 @@
+<div [formGroup]="form" class="component-container">
+  <ion-item>
+    <ion-label floating>{{label}}</ion-label>
+    <ion-textarea
+      rows="1"
+      formControlName="{{control}}"
+      (ionChange)="onChange($event)"
+      (keydown)="setHeight($event.target)"
+      (ionBlur)="toggleFocus()"
+      (ionFocus)="toggleFocus()">
+    </ion-textarea>
+  </ion-item>
+</div>
+<div class="nn-validation-message" *ngIf="form.get(control).hasError('required') && form.get(control).touched">
+  <span *ngIf="form.get(control).hasError('required')">Dit is een verplicht veld</span>
+</div>
